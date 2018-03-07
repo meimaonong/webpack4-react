@@ -4,6 +4,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { Button } from 'antd'
+
+import { DatePicker } from 'antd'
+
 class App extends React.Component {
 
     constructor(props) {
@@ -43,6 +47,10 @@ class App extends React.Component {
         console.log('The link was clicked.')
     }
 
+    onChange(date, dateString) {
+        console.log(date, dateString);
+    }
+
     ulProcess() {
         const numbers = [1, 2, 3, 4, 5]
         const listItems = numbers.map((number, index) =>
@@ -56,6 +64,13 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <div style={{ padding: '50px'}}>
+                    <DatePicker onChange={this.onChange} />&nbsp;
+                <Button type="primary">原始按钮</Button>&nbsp;
+                <Button>Default</Button>&nbsp;
+                <Button type="dashed">Dashed</Button>&nbsp;
+                <Button type="danger">Danger</Button>
+            </div>
             <ul>{this.ulProcess()}</ul>
             <div>It is { this.state.date }</div>
             <div><a href="#" onClick={this.goLink}>goLink</a></div>
